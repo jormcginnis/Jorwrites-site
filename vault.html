@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>JorWrites Vault CMS</title>
+  <title>JorWrites Vault CMS (Protected)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -42,31 +42,82 @@
       color: #FFD700;
       text-decoration: none;
     }
+    .password-gate {
+      max-width: 400px;
+      margin: 5rem auto;
+      text-align: center;
+    }
+    .hidden { display: none; }
+    input[type="password"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background: #FFD700;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 100px;
+      border: none;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-  <h1>🧠 JorWrites Vault CMS</h1>
-  <div class="vault-grid">
-    <div class="vault-card">
-      <h3>📝 Swipe Files</h3>
-      <p>Headline hooks, cold emails, bio templates</p>
-      <a href="#">Access Now</a>
-    </div>
-    <div class="vault-card">
-      <h3>🎁 Bonus Content</h3>
-      <p>PDFs, mini-courses, and tools</p>
-      <a href="#">Download</a>
-    </div>
-    <div class="vault-card">
-      <h3>🔗 Affiliate Tools</h3>
-      <p>Gear, hosting, writing platforms</p>
-      <a href="#">Explore</a>
-    </div>
-    <div class="vault-card">
-      <h3>🧩 Dropzones</h3>
-      <p>Hidden resources & updates</p>
-      <a href="#">Unlock</a>
-    </div>
+  <div class="password-gate" id="gate">
+    <h1>🔐 Enter Vault Password</h1>
+    <input type="password" id="password" placeholder="Enter password..." />
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color:red; display:none;">Incorrect password. Try again.</p>
   </div>
+
+  <div class="vault hidden" id="vault">
+    <h1>🧠 JorWrites Vault CMS</h1>
+    <div class="vault-grid">
+      <div class="vault-card">
+        <h3>📝 Swipe Files</h3>
+        <p>Headline hooks, cold emails, bio templates</p>
+        <a href="https://www.notion.so/">Access Notion Vault</a>
+      </div>
+      <div class="vault-card">
+        <h3>🎁 Bonus Content</h3>
+        <p>PDFs, mini-courses, and tools</p>
+        <a href="https://drive.google.com/">Download from Google Drive</a>
+      </div>
+      <div class="vault-card">
+        <h3>🔗 Affiliate Tools</h3>
+        <p>Gear, hosting, writing platforms</p>
+        <a href="https://example.com/affiliate.pdf">Open PDF Guide</a>
+      </div>
+      <div class="vault-card">
+        <h3>🧩 Dropzones</h3>
+        <p>Hidden resources & updates</p>
+        <a href="https://jorwrites-site.vercel.app/dropzone.html">Unlock Drop</a>
+      </div>
+    </div>
+
+    <h2 style="text-align:center; margin-top:3rem;">📬 Join the Secret List</h2>
+    <iframe src="https://buttondown.email/join/joraudi123?as_embed=true"></iframe>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      const correct = "vault2025";
+      if (pass === correct) {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("vault").classList.remove("hidden");
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>

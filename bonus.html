@@ -1,1 +1,91 @@
-<html><body><h1>Bonus Pack</h1><a href='vault.html'>Enter Vault</a></body></html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Claim your JorWrites Bonus Pack and unlock secret resources" />
+  <title>🎁 JorWrites Bonus Dropzone</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.json" />
+  <style>
+    body {
+      margin: 0;
+      background: #0c0c0c;
+      font-family: 'Segoe UI', sans-serif;
+      color: #f1f1f1;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e73370;
+    }
+    #bonusContent {
+      display: none;
+      text-align: left;
+      margin-top: 2rem;
+    }
+    a {
+      color: #66e6ff;
+      display: block;
+      margin: 0.5rem 0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔓 Unlock the JorWrites Bonus Vault</h1>
+    <p>Enter the secret code to access your templates, swipe files, and hidden upgrades.</p>
+    <input type="password" id="accessCode" placeholder="Enter access code..." />
+    <button onclick="unlockBonus()">Unlock</button><div id="bonusContent">
+  <h2>📦 Your Bonus Resources</h2>
+  <a href="/downloads/JorWrites_Template_Pack.pdf" download>📄 Template Pack</a>
+  <a href="/downloads/JorWrites_Swipe_Folder.zip" download>📁 Swipe Files</a>
+  <a href="/vault.html">🗝 Access the Hidden Vault</a>
+</div>
+
+  </div>  <script>
+    function unlockBonus() {
+      const code = document.getElementById('accessCode').value.trim();
+      if (code.toLowerCase() === 'dropzone') {
+        document.getElementById('bonusContent').style.display = 'block';
+      } else {
+        alert('Incorrect code. Try again.');
+      }
+    }
+  </script></body>
+</html>
